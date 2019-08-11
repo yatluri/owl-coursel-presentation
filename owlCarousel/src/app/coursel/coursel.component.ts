@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ResponsiveSettings } from 'ngx-owl-carousel-o';
 import { CourselViewModel } from './models/coursel-view.model';
 import { CourselService } from './services/coursel.service';
 import { Observable } from 'rxjs';
@@ -26,6 +27,9 @@ export class CourselComponent implements OnInit {
   setOwlItems() {
     setTimeout(() => {
       const owlContainer = this.owlContainer.nativeElement as HTMLElement;
+      this.vm.owlStageOuter = owlContainer.querySelector(
+        '.owl-stage-outer'
+      ) as HTMLElement;
       this.vm.owlItems = owlContainer
         .querySelector('.owl-stage')
         .querySelectorAll('.owl-item') as NodeList;
@@ -34,6 +38,10 @@ export class CourselComponent implements OnInit {
   }
   assignOwlClass() {
     if (this.vm.owlItems.length > 0) {
+      !this.vm.isAnimated
+        ? (this.vm.owlStageOuter.style.boxShadow = '0 2px 6px 1px darkgrey')
+        : // tslint:disable-next-line: no-unused-expression
+          null;
       this.vm.owlItems.forEach((v, k) => {
         const owlItem = v as HTMLElement;
         owlItem.style.backgroundColor = 'beige';
@@ -42,4 +50,20 @@ export class CourselComponent implements OnInit {
     }
   }
   addToChart(p: Products) {}
+  onUpdateView($event: string) {
+    if ($event) {
+      this.vm.viewSelected = $event;
+      // tslint:disable-next-line: no-unused-expression
+      this.vm.viewSelected === 'presentation' ? this.setOwlItems() : null;
+    }
+  }
+  onScrollDown() {
+    console.log('scrolled-down');
+  }
+  onUp() {}
+  onAnimationType($event: string) {
+    if ($event) {
+      this.vm.isAnimated = $event === 'flip';
+    }
+  }
 }

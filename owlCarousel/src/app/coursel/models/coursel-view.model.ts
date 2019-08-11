@@ -1,7 +1,12 @@
 import { OwlOptions } from 'ngx-owl-carousel-o';
 export class CourselViewModel {
   isAnimated = false;
+  viewSelected = 'presentation';
   owlItems: NodeList;
+  owlStageOuter: HTMLElement;
+  scrollDistance = 1;
+  scrollUpDistance = 1;
+  throttle = 150;
   courselOptions: OwlOptions = {
     loop: false,
     mouseDrag: true,
@@ -19,7 +24,7 @@ export class CourselViewModel {
     responsiveRefreshRate: 200,
     animateIn: 'flipInX',
     items: 1,
-    margin: 15,
+    margin: 20,
     stagePadding: 10,
     smartSpeed: 450
   };

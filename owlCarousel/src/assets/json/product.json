@@ -28,5 +28,40 @@
     "name": "product6",
     "price": 68,
     "imageUrl": "assets/images/6.jpg"
+  },
+  {
+    "name": "product7",
+    "price": 10.5,
+    "imageUrl": "assets/images/7.jpg"
+  },
+  {
+    "name": "product8",
+    "price": 15,
+    "imageUrl": "assets/images/8.jpg"
+  },
+  {
+    "name": "product9",
+    "price": 60,
+    "imageUrl": "assets/images/9.jpg"
+  },
+  {
+    "name": "product10",
+    "price": 39.99,
+    "imageUrl": "assets/images/10.png"
+  },
+  {
+    "name": "product11",
+    "price": 18,
+    "imageUrl": "assets/images/11.jfif"
+  },
+  {
+    "name": "product12",
+    "price": 100,
+    "imageUrl": "assets/images/12.jpg"
+  },
+  {
+    "name": "product13",
+    "price": 150,
+    "imageUrl": "assets/images/13.jpg"
   }
 ]
