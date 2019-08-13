@@ -1,4 +1,5 @@
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 export class CourselViewModel {
   isAnimated = false;
   viewSelected = 'presentation';
@@ -7,6 +8,7 @@ export class CourselViewModel {
   scrollDistance = 1;
   scrollUpDistance = 1;
   throttle = 150;
+  infiniteScroll: InfiniteScrollDirective;
   courselOptions: OwlOptions = {
     loop: false,
     mouseDrag: true,

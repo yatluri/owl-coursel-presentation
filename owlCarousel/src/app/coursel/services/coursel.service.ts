@@ -25,4 +25,14 @@ export class CourselService {
   init(): Observable<Array<Products>> {
     return this.getProducts$();
   }
+  updateProducts(products: Array<Products>): Observable<Array<Products>> {
+    const url = 'assets/json/product.json';
+    return this.http.get<Products[]>(url).pipe(
+      map((response: Products[]) => {
+        const res = [...products, ...response];
+        this.currentData$.next(res);
+        return res;
+      })
+    );
+  }
 }

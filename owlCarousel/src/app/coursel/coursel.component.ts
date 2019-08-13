@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ResponsiveSettings } from 'ngx-owl-carousel-o';
+import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 import { CourselViewModel } from './models/coursel-view.model';
 import { CourselService } from './services/coursel.service';
 import { Observable } from 'rxjs';
 import { Products } from './models/products';
+
 @Component({
   selector: 'app-coursel',
   templateUrl: './coursel.component.html',
@@ -11,6 +13,11 @@ import { Products } from './models/products';
 })
 export class CourselComponent implements OnInit {
   @ViewChild('owlContainer', { static: false }) owlContainer: ElementRef;
+  @ViewChild(InfiniteScrollDirective, { static: false }) set appScroll(
+    directive: InfiniteScrollDirective
+  ) {
+    this.vm.infiniteScroll = directive;
+  }
   vm = new CourselViewModel();
   products$: Observable<Array<Products>> = this.courselService.products$;
   constructor(private courselService: CourselService) {}
@@ -44,8 +51,8 @@ export class CourselComponent implements OnInit {
           null;
       this.vm.owlItems.forEach((v, k) => {
         const owlItem = v as HTMLElement;
-        owlItem.style.backgroundColor = 'beige';
-        owlItem.style.boxShadow = '0 8px 6px -6px black';
+        owlItem.style.backgroundColor = '#fff';
+        // owlItem.style.boxShadow = '0 8px 6px -6px black';
       });
     }
   }
@@ -57,7 +64,12 @@ export class CourselComponent implements OnInit {
       this.vm.viewSelected === 'presentation' ? this.setOwlItems() : null;
     }
   }
-  onScrollDown() {
+  onScrollDown(products: Array<Products>) {
+    // const tempArray: Products[] = [...products, ...products];
+    // this.courselService.updateProducts(tempArray).subscribe(res => {
+    //   this.vm.infiniteScroll.ngOnDestroy();
+    //   this.vm.infiniteScroll.setup();
+    // });
     console.log('scrolled-down');
   }
   onUp() {}
