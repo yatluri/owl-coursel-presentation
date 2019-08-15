@@ -1,7 +1,9 @@
 .fa-th,
 .fa-newspaper-o {
   font-size: x-large;
-  position: absolute;
+  position: relative;
+  left: 10px;
+  top: 6px;
   cursor: pointer;
   &:hover {
     color: #1cb00b;
@@ -13,4 +15,8 @@
   color: #fff;
   font-weight: bold;
   font-size: larger;
+}
+
+.cart-btn {
+  width: 100%;
 }

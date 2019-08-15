@@ -9,35 +9,43 @@
           <ng-container *ngFor="let p of products">
             <ng-template class="owl-carousel" carouselSlide>
               <div class="owl-shadow" [ngClass]="{'owl-item': vm.isAnimated === true}">
-                <div class="col-xs-12">
-                  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  <div class="img-container">
                     <img [src]="p.imageUrl" class="img-responsive img-thumbnail img-aligner" height="200" width="200" /></div>
-                  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 v-divider">
-                    <h1 class="product-name">{{p.name}}</h1>
-                    <h4 class="product-price">{{'PRICE: ' + ' ' + p.price +' '+ '@' +' ' +'$1.69' + ' ' + '(R)'}}</h4>
-                    <h4 class="product-type">{{'Gemline'}}</h4>
-                    <div class="product-rating">
-                      <span class="starRating">
-                        <input id="rating5" type="radio" name="rating" value="5">
-                        <label for="rating5">5</label>
-                        <input id="rating4" type="radio" name="rating" value="4">
-                        <label for="rating4">4</label>
-                        <input id="rating3" type="radio" name="rating" value="3">
-                        <label for="rating3">3</label>
-                        <input id="rating2" type="radio" name="rating" value="2">
-                        <label for="rating2">2</label>
-                        <input id="rating1" type="radio" name="rating" value="1">
-                        <label for="rating1">1</label>
-                      </span>
-                    </div>
-                    <div class="col-xs-8 add-to-cart">
-                      <button class="btn add-to-cart-btn" (click)="addToChart(p)">
-                        <ng-container i18n="Presentation|add to cart text@@presentationAddToChartText">Add to Cart
-                        </ng-container>
-                      </button>
-                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 v-divider">
+                  <h1 class="product-name">{{p.name}}</h1>
+                  <h4 class="product-price">{{'PRICE: ' + ' ' + p.price +' '+ '@' +' ' +'$1.69' + ' ' + '(R)'}}</h4>
+                  <h4 class="product-type">{{'Gemline'}}</h4>
+                  <div class="product-rating">
+                    <span class="starRating">
+                      <input id="rating5" type="radio" name="rating" value="5">
+                      <label for="rating5">5</label>
+                      <input id="rating4" type="radio" name="rating" value="4">
+                      <label for="rating4">4</label>
+                      <input id="rating3" type="radio" name="rating" value="3">
+                      <label for="rating3">3</label>
+                      <input id="rating2" type="radio" name="rating" value="2">
+                      <label for="rating2">2</label>
+                      <input id="rating1" type="radio" name="rating" value="1">
+                      <label for="rating1">1</label>
+                    </span>
+                  </div>
+                  <div class="add-to-cart">
+                    <button class="btn add-to-cart-btn" (click)="addToChart(p)">
+                      <ng-container i18n="Presentation|add to cart text@@presentationAddToChartText">Add to Cart
+                      </ng-container>
+                    </button>
                   </div>
                 </div>
+                <span class="pos-bot-right">
+                  <button class="btn btn-default btn-p" (click)="owlCar.prev()">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                  </button>
+                  <button class="btn btn-default btn-n" (click)="owlCar.next()">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                  </button>
+                </span>
               </div>
             </ng-template>
           </ng-container>
@@ -46,7 +54,7 @@
     </div>
     <div *ngIf="vm.viewSelected === 'grid'" class="container container-fluid">
       <div class="col-xs-12 thumbnail-container">
-        <div id="presentation-grid" class="img-container search-results" infinite-scroll [infiniteScrollDistance]="vm.scrollDistance" [infiniteScrollUpDistance]="vm.scrollUpDistance" [infiniteScrollThrottle]="vm.throttle" [scrollWindow]="true" (scrolled)="onScrollDown(products)" (scrolledUp)="onUp()" [immediateCheck]="true">
+        <div id="presentation-grid" class="img-container-grid search-results" infinite-scroll [infiniteScrollDistance]="vm.scrollDistance" [infiniteScrollUpDistance]="vm.scrollUpDistance" [infiniteScrollThrottle]="vm.throttle" [scrollWindow]="true" (scrolled)="onScrollDown(products)" (scrolledUp)="onUp()" [immediateCheck]="true">
           <div class="col-xs-12">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" *ngFor="let p of products">
               <div class="col-xs-12 img-thumbnail">

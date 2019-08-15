@@ -46,7 +46,7 @@ export class CourselComponent implements OnInit {
   assignOwlClass() {
     if (this.vm.owlItems.length > 0) {
       !this.vm.isAnimated
-        ? (this.vm.owlStageOuter.style.boxShadow = '0 2px 6px 1px darkgrey')
+        ? (this.vm.owlStageOuter.style.boxShadow = 'darkgrey 0px 1px 2px 0px')
         : // tslint:disable-next-line: no-unused-expression
           null;
       this.vm.owlItems.forEach((v, k) => {

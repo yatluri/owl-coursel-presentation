@@ -10,6 +10,7 @@ export class CourselViewModel {
   throttle = 150;
   infiniteScroll: InfiniteScrollDirective;
   courselOptions: OwlOptions = {
+    center: true,
     loop: false,
     mouseDrag: true,
     touchDrag: true,
@@ -17,17 +18,56 @@ export class CourselViewModel {
     autoWidth: true,
     smartSpeed: 450,
     margin: 15,
+    mergeFit: true,
     stagePadding: 10,
     items: 1,
-    responsiveRefreshRate: 200,
-    nav: false
+    responsiveRefreshRate: 20,
+    responsive: {
+      0: {
+        responsiveRefreshRate: 20,
+        mergeFit: true
+      },
+      300: {
+        responsiveRefreshRate: 20,
+        mergeFit: true
+      },
+      700: {
+        responsiveRefreshRate: 20,
+        mergeFit: true
+      },
+      940: {
+        responsiveRefreshRate: 20,
+        mergeFit: true
+      }
+    },
+    nav: false,
+    autoHeight: true
   };
   courselAnimationOptions: OwlOptions = {
-    responsiveRefreshRate: 200,
+    autoWidth: true,
     animateIn: 'flipInX',
     items: 1,
     margin: 20,
     stagePadding: 10,
-    smartSpeed: 450
+    smartSpeed: 450,
+    responsiveRefreshRate: 20,
+    responsive: {
+      0: {
+        responsiveRefreshRate: 20,
+        mergeFit: true
+      },
+      300: {
+        responsiveRefreshRate: 20,
+        mergeFit: true
+      },
+      700: {
+        responsiveRefreshRate: 20,
+        mergeFit: true
+      },
+      940: {
+        responsiveRefreshRate: 20,
+        mergeFit: true
+      }
+    }
   };
 }
